@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stageBet",
+  "title": "stageBet",
+  "description": "During a round or stage, a player can place a bet on the round victory of camels using a betting slip. The JSON packet stageBet is used by the player client to place a round bet on a specific camel.",
+  "type": "object",
+  "required": [
+    "camelId"
+  ],
+  "properties": {
+    "camelId": {
+      "description": "The ID of the camel on which the bet is to be placed.",
+      "type": "integer"
+    }
+  },
+  "example": {
+    "camelId": 2
+  }
+}

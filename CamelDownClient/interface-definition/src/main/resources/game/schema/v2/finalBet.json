@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "finalBet",
+    "title": "finalBet",
+    "description": "The package sent from the client to the server is transmitted as soon as a player is up and decides to place a bet on which camel is going to win or lose the game.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "isFirst",
+        "id"
+    ],
+    "properties": {
+        "isFirst": {
+            "description": "Indicates whether the bet was placed on the first or last position. A bet on the 'first place' (true) is a bet that the camel will win the game. A bet on the 'last place' (false) is a bet that the camel will lose the game.",
+            "type": "boolean"
+        },
+        "id": {
+            "description": "Indicates which camel the bet was placed on. The value is the ID of the camel that was bet on.",
+            "type": "integer"
+        }
+    },
+    "examples": [
+        {
+            "isFirst": "true",
+            "id": 12
+        }
+    ]
+}

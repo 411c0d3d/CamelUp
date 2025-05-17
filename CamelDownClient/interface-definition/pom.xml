@@ -1,0 +1,38 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cameldown.camelup</groupId>
+        <artifactId>camel-up</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <description>
+        Includes the interface definition from the interface committee as
+        Java Data Transfer Objects (DTO's),
+        so it can be shared between Server and Clients.
+    </description>
+
+    <groupId>cameldown.camelup.interface-definition</groupId>
+    <artifactId>interface-definition</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsonschema2pojo</groupId>
+            <artifactId>jsonschema2pojo-core</artifactId>
+        </dependency>
+    </dependencies>
+</project>

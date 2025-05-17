@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cameldown.camelup.client.observer.PlayerCardController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="960.0">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="1180.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="960.0" text="Zuschauerplättchen platzieren">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets left="30.0" top="20.0" />
+                     </padding>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#handleClose" style="-fx-background-color: transparent;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets right="10.0" top="10.0" />
+                     </padding>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" onDragDetected="#handleClose" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/GameSpectate/closeButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="444.0" prefWidth="960.0">
+               <children>
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="313.0" prefWidth="960.0">
+                     <children>
+                        <VBox prefHeight="400.0" prefWidth="196.0">
+                           <children>
+                              <Label text="Field ID eingeben:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                              <VBox prefHeight="7.0" prefWidth="600.0" />
+                              <TextField fx:id="fieldInput" prefHeight="33.0" prefWidth="146.0" promptText="12" style="-fx-background-radius: 20;">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="25.0" />
+                        <VBox prefHeight="263.0" prefWidth="140.0">
+                           <children>
+                              <Label text="+1 oder -1">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Label>
+                              <VBox prefHeight="6.0" prefWidth="600.0" />
+                              <ChoiceBox fx:id="ChoiceBoxPlayerCard" prefHeight="33.0" prefWidth="161.0" style="-fx-background-radius: 20;">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding></ChoiceBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="placePlayerCardButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handlePlacePlayerCard" prefHeight="33.0" prefWidth="171.0" style="-fx-background-radius: 20;" text="Plättchen platzieren">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</StackPane>

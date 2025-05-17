@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "joinLobby",
+    "title": "joinLobby",
+    "description": "A package to join a specific lobby. The client can send this package to the server to join a lobby with a specific ID as a player or observer. The client then receives a successResponse indicating whether the join was successful. In case of an error, the response contains an appropriate error message. Alternatively, the joinLobby package can also be sent from the server to the client when the player has been assigned to a lobby server-side. In this case, the client can assume that it is now in the lobby with the lobbyID transmitted in the joinLobby package.",
+    "type": "object",
+    "required": [
+        "lobbyId",
+        "joinAsPlayer"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "lobbyId": {
+            "description": "The ID of the lobby to join. If this has the value -1, the package is interpreted as 'leaveLobby'.",
+            "type": "integer",
+            "minimum": -1
+        },
+        "joinAsPlayer": {
+            "description": "Indicates whether to join as a player (true) or observer (false)",
+            "type": "boolean"
+        }
+    },
+    "examples": [
+        {
+            "lobbyId": 8,
+            "joinAsPlayer": true
+        },
+        {
+            "lobbyId": 11,
+            "joinAsPlayer": false
+        }
+    ]
+}

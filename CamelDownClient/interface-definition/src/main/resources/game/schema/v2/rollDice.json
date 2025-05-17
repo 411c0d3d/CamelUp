@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rollDice",
+  "title": "rollDice",
+  "description": "This packet is sent from the client to the server when a player decides to roll the dice during their turn. It triggers the server-side dice roll event.",
+  "type": "object",
+  "additionalProperties": false
+}

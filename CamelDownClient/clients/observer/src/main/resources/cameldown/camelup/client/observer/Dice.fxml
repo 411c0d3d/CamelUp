@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootStackPane" style="-fx-background-color: transparent;"
+           xmlns="http://javafx.com/javafx/21" fx:controller="cameldown.camelup.client.observer.DicesController">
+    <children>
+        <GridPane fx:id="rootGridPane" alignment="CENTER" maxHeight="540.0" maxWidth="960.0" minHeight="540.0"
+                  minWidth="960.0" prefHeight="540.0" prefWidth="960.0">
+            <GridPane alignment="CENTER" maxHeight="540.0" maxWidth="960.0" minHeight="540.0" minWidth="960.0"
+                      prefHeight="540.0" prefWidth="960.0">
+                <columnConstraints>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" percentHeight="70.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    <RowConstraints minHeight="10.0" percentHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                </rowConstraints>
+                <children>
+                    <Text text="Würfelübersicht" GridPane.rowIndex="1">
+                        <font>
+                            <Font name="Arial Bold" size="17.0"/>
+                        </font>
+                    </Text>
+                    <Button onAction="#handleClose"
+                            style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0); -fx-background-radius: 10;"
+                            text="Schließen" GridPane.rowIndex="3">
+                        <font>
+                            <Font name="System Bold" size="15.0"/>
+                        </font>
+                    </Button>
+                    <GridPane alignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0"/>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="47.0"
+                                               prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="47.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="3.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints minHeight="10.0" percentHeight="90.0" prefHeight="30.0" valignment="TOP"
+                                            vgrow="SOMETIMES"/>
+                        </rowConstraints>
+                        <children>
+                            <Text text="Zuletzt gewürfelte Kamele" GridPane.columnIndex="1">
+                                <font>
+                                    <Font name="Arial Bold" size="16.0"/>
+                                </font>
+                            </Text>
+                            <HBox fx:id="diceRolledDice" prefHeight="100.0" prefWidth="200.0"
+                                  style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0); -fx-background-color: white; -fx-background-radius: 19;"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                            <GridPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                    <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0"
+                                                       percentWidth="55.0" prefWidth="100.0"/>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="45.0"
+                                                       prefWidth="100.0"/>
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" percentHeight="75.0" prefHeight="30.0"
+                                                    valignment="TOP" vgrow="SOMETIMES"/>
+                                    <RowConstraints minHeight="10.0" percentHeight="25.0" prefHeight="30.0"
+                                                    valignment="CENTER" vgrow="SOMETIMES"/>
+                                </rowConstraints>
+                                <children>
+                                    <Text text="Zuletzt gewürfelt:">
+                                        <font>
+                                            <Font name="Arial Bold" size="15.0"/>
+                                        </font>
+                                    </Text>
+                                    <Text text="Führendes ungewürfeltes Kamel:" wrappingWidth="284.2578125">
+                                        <GridPane.margin>
+                                            <Insets top="36.0"/>
+                                        </GridPane.margin>
+                                        <font>
+                                            <Font name="Arial Bold" size="15.0"/>
+                                        </font>
+                                    </Text>
+                                    <Text text="Führendes gewürfeltes Kamel:" wrappingWidth="284.2578125">
+                                        <font>
+                                            <Font name="Arial Bold" size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="72.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text text="Anzahl bereits gewürfelt:" wrappingWidth="284.2578125">
+                                        <font>
+                                            <Font name="Arial Bold" size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="108.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text text="Anzahl ungewürfelt:" wrappingWidth="284.2578125">
+                                        <font>
+                                            <Font name="Arial Bold" size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="144.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text text="Rückwärts laufende Kamel:" wrappingWidth="284.2578125">
+                                        <font>
+                                            <Font name="Arial Bold" size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="180.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text text="ID -2:" wrappingWidth="284.2578125">
+                                        <font>
+                                            <Font size="16.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets left="15.0" top="202.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text text="ID -1:" wrappingWidth="284.2578125">
+                                        <font>
+                                            <Font size="16.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets left="15.0" top="224.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text fx:id="diceLast" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                    </Text>
+                                    <Text fx:id="diceFirstUnrolled" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="36.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text fx:id="diceFirstRolled" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="72.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text fx:id="diceCountRolled" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="108.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text fx:id="diceCountUnrolled" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="144.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text fx:id="diceBack2" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="202.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <Text fx:id="diceBack1" text="?????" GridPane.columnIndex="1">
+                                        <font>
+                                            <Font size="15.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets top="224.0"/>
+                                        </GridPane.margin>
+                                    </Text>
+                                    <TextField fx:id="diceIDSearchField" alignment="CENTER" maxWidth="140.0"
+                                               onAction="#diceIDSearch" prefHeight="30.0" prefWidth="140.0"
+                                               promptText="Kamel ID suchen" style="-fx-background-radius: 20;"
+                                               GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                        <font>
+                                            <Font size="16.0"/>
+                                        </font>
+                                        <GridPane.margin>
+                                            <Insets/>
+                                        </GridPane.margin>
+                                    </TextField>
+                                    <Text fx:id="diceIDSearchValue" text="Kamel ID eingeben und Eingabetaste drücken."
+                                          wrappingWidth="185.5859375" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <font>
+                                            <Font size="16.0"/>
+                                        </font>
+                                    </Text>
+                                </children>
+                            </GridPane>
+                        </children>
+                    </GridPane>
+                    <GridPane>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+                        <children>
+                            <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                                    minWidth="-Infinity" mnemonicParsing="false" onAction="#handleClose"
+                                    prefHeight="25.0" prefWidth="25.0"
+                                    style="-fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);"
+                                    GridPane.columnIndex="1">
+                                <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true"
+                                               preserveRatio="true">
+                                        <image>
+                                            <Image url="@assets/GameSpectate/closeButton.png"/>
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <GridPane.margin>
+                                    <Insets right="15.0" top="15.0"/>
+                                </GridPane.margin>
+                            </Button>
+                        </children>
+                        <columnConstraints>
+                            <ColumnConstraints/>
+                            <ColumnConstraints halignment="RIGHT" minWidth="10.0" percentWidth="100.0"
+                                               prefWidth="100.0"/>
+                        </columnConstraints>
+                    </GridPane>
+                </children>
+            </GridPane>
+            <columnConstraints>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+            </rowConstraints>
+        </GridPane>
+    </children>
+</StackPane>

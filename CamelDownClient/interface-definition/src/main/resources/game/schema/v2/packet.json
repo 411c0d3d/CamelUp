@@ -1,0 +1,79 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "packet",
+    "title": "Packet",
+    "description": "The basic structure of a packet through which all communication runs. It includes all other packet types and is therefore always used whenever any kind of communication takes place.",
+    "type": "object",
+    "required": [
+        "type",
+        "content"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "type": {
+            "description": "The type of the packet.",
+            "type": "string",
+            "enum": [
+                "clientAck",
+                "playerRegistration",
+                "finalBet",
+                "gameState",
+                "joinLobby",
+                "lobbyList",
+                "moveVisualized",
+                "placePlayerCard",
+                "recentGames",
+                "requestLobbyList",
+                "requestRecentGames",
+                "rollDice",
+                "stageBet",
+                "successFeedback"
+            ]
+        },
+        "content": {
+            "description": "The content of the packet. This must always match the type of the packet.",
+            "type": "object",
+            "anyOf": [
+                {
+                    "$ref": "clientAck.json#"
+                },
+                {
+                    "$ref": "playerRegistration.json#"
+                },
+                {
+                    "$ref": "finalBet.json#"
+                },
+                {
+                    "$ref": "gameState.json#"
+                },
+                {
+                    "$ref": "joinLobby.json#"
+                },
+                {
+                    "$ref": "lobbyList.json#"
+                },
+                {
+                    "$ref": "moveVisualized.json#"
+                },
+                {
+                    "$ref": "placePlayerCard.json#"
+                },
+                {
+                    "$ref": "recentGames.json#"
+                },
+                {
+                    "$ref": "requestLobbyList.json#"
+                },
+                {
+                    "$ref": "rollDice.json#"
+                },
+                {
+                    "$ref": "stageBet.json#"
+                },
+                {
+                    "$ref": "successFeedback.json#"
+                }
+            ]
+        }
+    }
+}

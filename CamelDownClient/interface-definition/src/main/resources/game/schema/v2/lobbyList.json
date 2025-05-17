@@ -1,0 +1,73 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "lobbyList",
+   "title": "lobbyList",
+   "description": "The package sent in response to 'requestLobbyList'. The package contains a list of lobby objects, which include information about the joined players and observers, as well as the game status.",
+   "type": "object",
+   "properties": {
+      "lobbies": {
+         "type": "array",
+         "description": "A list of lobby objects that can be joined as a player or observer.",
+         "minItems": 0,
+         "items": {
+            "type": "object",
+            "description": "Game",
+            "properties": {
+               "lobbyId": {
+                  "description": "Unique identifier for a lobby.",
+                  "type": "integer"
+               },
+               "name": {
+                  "description": "Display name of the lobby.",
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 20
+               },
+               "gameState": {
+                  "$ref": "gameState.json"
+               },
+               "observerIds": {
+                  "type": "array",
+                  "description": "A list of observer IDs that have joined the lobby. These correspond to the client IDs of the respective client.",
+                  "items": {
+                     "type": "integer"
+                  }
+               }
+            },
+            "required": [
+               "lobbyId",
+               "name",
+               "gameState",
+               "observerIds"
+            ],
+            "additionalProperties": false
+         }
+      }
+   },
+   "required": [
+      "lobbies"
+   ],
+   "additionalProperties": false,
+   "examples": [
+      {
+         "lobbies": [
+            {
+               "lobbyId": 1,
+               "name": "Dune",
+               "gameState": {
+                  "$ref": "gameState.json#/examples/"
+               },
+               "observerIds": [
+                  5,
+                  7,
+                  10,
+                  23,
+                  35,
+                  100,
+                  101
+               ]
+            }
+         ]
+      }
+   ]
+}

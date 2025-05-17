@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- Colorized log pattern using ANSI escape codes -->
+            <PatternLayout>
+                <pattern>
+                    %d{HH:mm:ss.SSS}
+                    %replace{%level}{INFO}{\u001B[36mINFO\u001B[0m}
+                    %replace{%level}{WARN}{\u001B[33mWARN\u001B[0m}
+                    %replace{%level}{ERROR}{\u001B[31mERROR\u001B[0m}
+                    [%logger{short}] %msg%n
+                </pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

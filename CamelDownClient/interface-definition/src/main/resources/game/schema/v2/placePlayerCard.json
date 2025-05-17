@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "placePlayerCard",
+    "title": "placePlayerCard",
+    "description": "The packet that is sent from the player client to the server to place a spectator tile.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "spaceId",
+        "movingDirection"
+    ],
+    "properties": {
+        "spaceId": {
+            "description": "This is the ID of the field where the spectator tile should be placed.",
+            "type": "integer"
+        },
+        "movingDirection": {
+            "description": "This specifies whether the camel (herd) should move one space forward (+1) or one space backward (-1) when entering the field.",
+            "type": "integer",
+            "enum": [
+                -1,
+                1
+            ]
+        }
+    },
+    "examples": [
+        {
+            "fieldId": 50,
+            "movingDirection": -1
+        }
+    ]
+}

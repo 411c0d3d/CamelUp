@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "moveVisualized",
+    "title": "moveVisualized",
+    "description": "This package is sent from the client to the server as soon as the client has finished visualizing a move. This happens, for example, after a player has rolled the dice, followed by the dice animation, and finally the movement of the affected camels from field A to field B is completed. After all players have sent a moveVisualized package to the server, or after the maximum visualization time has been exceeded, the next player in the game order is granted their turn.",
+    "type": "object",
+    "additionalProperties": false
+}

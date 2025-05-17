@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "recentGamesReq",
+  "title": "recentGamesReq",
+  "description": "Requests the recentGames package from the server. The server will send the 'recentGames' package in response.",
+  "type": "object",
+  "required": [
+    "numGames"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "numGames": {
+      "description": "The number of games the client wants to receive from the server. If there are fewer games than requested, the server will send all available games.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
+    }
+  },
+  "examples": [
+    {
+      "numGames": 20
+    }
+  ]
+}

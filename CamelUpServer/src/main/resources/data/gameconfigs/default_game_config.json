@@ -1,0 +1,12 @@
+{
+  "playerCount": 5,
+  "numberOfSpaces": 5,
+  "camelCount": 7,
+  "diceFaces": 6,
+  "numberOfBettingCards": 4,
+  "thinkingTime": 1,
+  "visualizationTime": 1,
+  "illegalMovePenalty": "forfeitCurrentStage",
+  "maxGameDuration": 1000,
+  "maxTurns": 50
+}

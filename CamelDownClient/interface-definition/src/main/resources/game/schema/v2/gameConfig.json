@@ -1,0 +1,107 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "gameConfig",
+    "title": "gameConfig",
+    "description": "The configuration of a game. This data is never sent as a separate package, only as part of the gameState package. This is the format of the configuration file that a server admin can load and save.",
+    "type": "object",
+    "required": [
+        "playerCount",
+        "numberOfSpaces",
+        "camels",
+        "diceFaces",
+        "numberOfBettingsCards",
+        "thinkingTime",
+        "visualizationTime",
+        "illegalMovePenalty",
+        "maxGameDuration",
+        "maxRounds"
+    ],
+    "properties": {
+        "playerCount": {
+            "description": "The maximum number of players in a game",
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 6
+        },
+        "numberOfSpaces": {
+            "description": "The number of spaces on the board",
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 32766
+        },
+        "camels": {
+            "type": "array",
+            "description": "A list of camels in the game",
+            "items": {
+                "title": "camel",
+                "description": "A specific camel",
+                "type": "object",
+                "required": [
+                    "id",
+                    "color"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "id": {
+                        "description": "The unique ID of the camel. The IDs -1 and -2 are reserved for the two backward-running camels. All other camels start at 0 and are numbered consecutively.",
+                        "type": "integer",
+                        "minimum": -2,
+                        "maximum": 32767
+                    },
+                    "color": {
+                        "description": "The color of the camel as a hexadecimal color code",
+                        "type": "string",
+                        "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                    }
+                }
+            },
+            "minItems": 4,
+            "maxItems": 32767,
+            "uniqueItems": true
+        },
+        "diceFaces": {
+            "description": "The number of faces on a die",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10922
+        },
+        "numberOfBettingsCards": {
+            "description": "The number of betting cards for each camel",
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 32767
+        },
+        "thinkingTime": {
+            "description": "The time a player has to think in milliseconds",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+        },
+        "visualizationTime": {
+            "description": "The maximum time the visualization of a move should take in milliseconds",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+        },
+        "illegalMovePenalty": {
+            "description": "The penalty a player receives for making an invalid move or taking too long",
+            "type": "string",
+            "enum": [
+                "forfeitCurrentStage",
+                "forfeitGame"
+            ]
+        },
+        "maxGameDuration": {
+            "description": "The maximum duration of a game in milliseconds",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+        },
+        "maxTurns": {
+            "description": "The maximum number of turns a game can have",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32767
+        }
+    }
+}

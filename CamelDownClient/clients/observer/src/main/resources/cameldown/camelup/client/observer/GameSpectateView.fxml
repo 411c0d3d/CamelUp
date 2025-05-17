@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="rootStackPane" focusTraversable="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cameldown.camelup.client.observer.GameSpectateController">
+    <children>
+        <GridPane fx:id="rootGridPane" maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="520.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="1400.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="1080.0" valignment="TOP" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ImageView fx:id="backgroundGameview" fitHeight="1080.0" fitWidth="1400.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                    <image>
+                        <Image url="@assets/GameSpectate/Background2.png" />
+                    </image>
+                </ImageView>
+                <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;">
+                    <children>
+                        <HBox layoutX="10.0" layoutY="90.0" prefHeight="7.0" prefWidth="1.0" />
+                        <HBox fx:id="player0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 0 20 20 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 10, 0);">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="60.0">
+                                    <children>
+                                        <ImageView fx:id="playerPicture0" fitHeight="60.0" fitWidth="60.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PicturePlayer.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <HBox fx:id="playerCardsPlayer1114" maxWidth="35.0" minWidth="35.0" prefHeight="100.0" prefWidth="35.0" />
+                                <Label fx:id="playerIDPlayer0" contentDisplay="CENTER" maxHeight="80.0" maxWidth="-Infinity" prefWidth="300.0" text="Warte auf Spieler...">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <HBox maxHeight="80.0" maxWidth="150.0" prefHeight="80.0" prefWidth="70.0">
+                                    <children>
+                                        <Label fx:id="coinCountPlayer0" alignment="CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="?">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="7.0" prefWidth="1.0" />
+                        <HBox fx:id="player1" layoutX="10.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 0 20 20 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 10, 0);">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="60.0">
+                                    <children>
+                                        <ImageView fx:id="playerPicture1" fitHeight="60.0" fitWidth="60.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PicturePlayer.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <HBox fx:id="playerCardsPlayer11" minWidth="35.0" prefHeight="100.0" prefWidth="35.0" />
+                                <Label fx:id="playerIDPlayer1" contentDisplay="CENTER" maxHeight="80.0" maxWidth="300.0" prefWidth="300.0" text="Warte auf Spieler...">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <HBox maxHeight="80.0" maxWidth="150.0" prefHeight="80.0" prefWidth="70.0">
+                                    <children>
+                                        <Label fx:id="coinCountPlayer1" alignment="CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="?">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="90.0" prefHeight="7.0" prefWidth="1.0" />
+                        <HBox fx:id="player2" layoutX="10.0" layoutY="97.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 0 20 20 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 10, 0);">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="60.0">
+                                    <children>
+                                        <ImageView fx:id="playerPicture2" fitHeight="60.0" fitWidth="60.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PicturePlayer.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <HBox fx:id="playerCardsPlayer111" minWidth="35.0" prefHeight="100.0" prefWidth="35.0" />
+                                <Label fx:id="playerIDPlayer2" contentDisplay="CENTER" maxHeight="80.0" maxWidth="300.0" prefWidth="300.0" text="Warte auf Spieler...">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <HBox maxHeight="80.0" maxWidth="150.0" prefHeight="80.0" prefWidth="70.0">
+                                    <children>
+                                        <Label fx:id="coinCountPlayer2" alignment="CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="?">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="177.0" prefHeight="7.0" prefWidth="1.0" />
+                        <HBox fx:id="player3" layoutX="10.0" layoutY="184.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 0 20 20 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 10, 0);">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="60.0">
+                                    <children>
+                                        <ImageView fx:id="playerPicture3" fitHeight="60.0" fitWidth="60.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PicturePlayer.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <HBox fx:id="playerCardsPlayer1111" minWidth="35.0" prefHeight="100.0" prefWidth="35.0" />
+                                <Label fx:id="playerIDPlayer3" contentDisplay="CENTER" maxHeight="80.0" maxWidth="300.0" prefWidth="300.0" text="Warte auf Spieler...">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <HBox maxHeight="80.0" maxWidth="150.0" prefHeight="80.0" prefWidth="70.0">
+                                    <children>
+                                        <Label fx:id="coinCountPlayer3" alignment="CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="?">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="264.0" prefHeight="7.0" prefWidth="1.0" />
+                        <HBox fx:id="player4" layoutX="10.0" layoutY="271.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 0 20 20 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 10, 0);">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="60.0">
+                                    <children>
+                                        <ImageView fx:id="playerPicture4" fitHeight="60.0" fitWidth="60.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PicturePlayer.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <HBox fx:id="playerCardsPlayer1112" minWidth="35.0" prefHeight="100.0" prefWidth="35.0" />
+                                <Label fx:id="playerIDPlayer4" contentDisplay="CENTER" maxHeight="80.0" maxWidth="300.0" prefWidth="300.0" text="Warte auf Spieler...">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <HBox maxHeight="80.0" maxWidth="150.0" prefHeight="80.0" prefWidth="70.0">
+                                    <children>
+                                        <Label fx:id="coinCountPlayer4" alignment="CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="?">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="351.0" prefHeight="7.0" prefWidth="1.0" />
+                        <HBox fx:id="player5" layoutX="10.0" layoutY="358.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="450.0" style="-fx-background-color: white; -fx-background-radius: 0 20 20 0; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 10, 0);">
+                            <children>
+                                <AnchorPane prefHeight="200.0" prefWidth="60.0">
+                                    <children>
+                                        <ImageView fx:id="playerPicture5" fitHeight="60.0" fitWidth="60.0" layoutX="5.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PicturePlayer.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </AnchorPane>
+                                <HBox fx:id="playerCardsPlayer1113" minWidth="35.0" prefHeight="100.0" prefWidth="35.0" />
+                                <Label fx:id="playerIDPlayer5" contentDisplay="CENTER" maxHeight="80.0" maxWidth="300.0" prefWidth="300.0" text="Warte auf Spieler...">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                                <HBox maxHeight="80.0" maxWidth="150.0" prefHeight="80.0" prefWidth="70.0">
+                                    <children>
+                                        <Label fx:id="coinCountPlayer5" alignment="CENTER" contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="?">
+                                            <font>
+                                                <Font size="25.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="425.0" prefHeight="70.0" prefWidth="520.0" />
+                        <HBox prefHeight="40.0" prefWidth="170.0">
+                            <children>
+                                <HBox prefHeight="58.0" prefWidth="32.0" />
+                                <Button fx:id="btnDicePyramide" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="58.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleDicePyramide" prefHeight="60.0" prefWidth="62.0" style="-fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/DiceButton.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Label contentDisplay="CENTER" minWidth="120.0" prefHeight="65.0" prefWidth="180.0" style="-fx-padding: 0 0 0 20;" text="Würfeln">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                                </Label>
+                                <HBox layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="12.0" />
+                                <Button fx:id="btnEndPlayerCard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="58.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleOpenPlayerCard" prefHeight="60.0" prefWidth="62.0" style="-fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                    <graphic>
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/PlayerCardButton.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Label minWidth="90.0" prefHeight="65.0" prefWidth="150.0" style="-fx-padding: 0 0 0 20;" text="Plättchen">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                  <VBox prefHeight="17.0" prefWidth="520.0" />
+                  <HBox layoutX="10.0" layoutY="572.0" prefHeight="40.0" prefWidth="170.0">
+                     <children>
+                        <HBox prefHeight="58.0" prefWidth="32.0" />
+                        <Button fx:id="btnBettings1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="58.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleOpenBetting" prefHeight="60.0" prefWidth="62.0" style="-fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/GameSpectate/CamelIconButton.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label contentDisplay="CENTER" minWidth="120.0" prefHeight="65.0" prefWidth="180.0" style="-fx-padding: 0 0 0 20;" text="Etappenwetten">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="58.0" prefWidth="12.0" />
+                        <Button fx:id="btnEndBetting1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="58.0" minWidth="60.0" mnemonicParsing="false" onAction="#handleOpenEndBetting" prefHeight="60.0" prefWidth="62.0" style="-fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/GameSpectate/WinIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Label minWidth="90.0" prefHeight="65.0" prefWidth="150.0" style="-fx-padding: 0 0 0 20;" text="Finalwetten">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                        <HBox prefHeight="25.0" prefWidth="200.0" />
+                        <HBox prefHeight="50.0" prefWidth="200.0">
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="65.0" />
+                                <HBox fx:id="rolledDiceBox" alignment="CENTER" minHeight="140.0" prefWidth="390.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0); -fx-background-color: white; -fx-background-radius: 19;">
+                                </HBox>
+
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="725.0" prefHeight="30.0" prefWidth="200.0" />
+                        <HBox alignment="CENTER" prefHeight="50.0" prefWidth="520.0">
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="30.0" />
+                                <HBox prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 13; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                    <children>
+                                        <HBox prefHeight="20.0" prefWidth="1.0" />
+                                        <Label fx:id="playerTimer" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="160.0" text="00:00:00" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="10.0" />
+                                <HBox prefHeight="100.0" prefWidth="140.0">
+                                    <children>
+                                        <HBox layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="100.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0); -fx-background-radius: 20;">
+                                            <children>
+                                                <Label fx:id="turnCount" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" text="? / ?" textAlignment="CENTER">
+                                                    <font>
+                                                        <Font size="26.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="10.0" />
+                                <HBox layoutX="183.0" layoutY="10.0" prefHeight="100.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 13; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                    <children>
+                                        <Label fx:id="GameTimer" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="160.0" text="00:00:00" textAlignment="CENTER" textFill="#2cf536">
+                                            <font>
+                                                <Font size="26.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="30.0" />
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="751.0" prefHeight="7.0" prefWidth="1.0" />
+                        <HBox layoutX="10.0" layoutY="941.0" prefHeight="50.0" prefWidth="200.0">
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="135.0" />
+                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Label fx:id="playerTimer1" alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" text="Spielzeit" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="22.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="115.0" />
+                                <HBox layoutX="183.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0">
+                                    <children>
+                                        <Label fx:id="Round" alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="70.0" text="Zug" textAlignment="CENTER">
+                                            <font>
+                                                <Font size="22.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="100.0" />
+                                <Label fx:id="playerTimer12" alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" text="Zugzeit" textAlignment="CENTER">
+                                    <font>
+                                        <Font size="22.0" />
+                                    </font>
+                                </Label>
+                                <HBox layoutX="356.0" layoutY="10.0" prefHeight="100.0" prefWidth="135.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0">
+                            <children>
+                                <HBox prefHeight="100.0" prefWidth="350.0" />
+                                <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="50.0" minWidth="320.0" prefHeight="30.0" prefWidth="200.0">
+                                    <children>
+                                        <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minHeight="40.0" minWidth="170.0" mnemonicParsing="false" onAction="#leaveLobby" prefWidth="140.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);" text="Zurück zum Menü">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Button>
+                                        <HBox prefHeight="100.0" prefWidth="10.0" />
+                                        <Button fx:id="btnInfo" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleOpenInfo" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                            <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@assets/GameSpectate/InfoIcon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                        <HBox layoutX="160.0" layoutY="10.0" prefHeight="100.0" prefWidth="10.0" />
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleOpenSettings" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                            <graphic>
+                                                <ImageView fx:id="btnSettings" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@assets/GameSpectate/SettingsIcon.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                        <HBox prefHeight="100.0" prefWidth="10.0" />
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#handleOpenHotkey" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);">
+                                            <graphic>
+                                                <ImageView fx:id="btnSettings1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@assets/GameSpectate/hotkey.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <HBox prefHeight="100.0" prefWidth="350.0" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" percentWidth="100.0" prefWidth="1400.0" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="900.0" valignment="TOP" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="180.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="200.0" prefWidth="1400.0" GridPane.rowIndex="1">
+                            <children>
+                                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="26.0" minHeight="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#left" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 9; -fx-background-color: transparent;" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/ArrowLeft.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button contentDisplay="CENTER" layoutX="790.0" layoutY="26.0" minHeight="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#right" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 9; -fx-background-color: transparent;" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/ArrowRight.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <TextField fx:id="centerTextField0" alignment="CENTER" layoutX="607.0" layoutY="33.0" maxWidth="170.0" onAction="#centerOnField" prefHeight="45.0" prefWidth="170.0" promptText="Feld suchen" style="-fx-background-radius: 20;">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </TextField>
+                                <HBox alignment="CENTER" layoutX="42.0" layoutY="100.0" minHeight="80.0" prefWidth="1300.0" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0); -fx-background-color: white; -fx-background-radius: 19 19 0 0;">
+                                    <children>
+                                        <AnchorPane prefWidth="1300.0">
+                                            <children>
+                                                <Button layoutX="22.0" layoutY="22.0" mnemonicParsing="false" onAction="#firstCamel" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);" text="Zum ersten Kamel">
+                                                    <opaqueInsets>
+                                                        <Insets />
+                                                    </opaqueInsets>
+                                                    <padding>
+                                                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                    </padding>
+                                                    <font>
+                                                        <Font name="System Bold" size="19.0" />
+                                                    </font>
+                                                </Button>
+                                                <TextField fx:id="centerTextField1" alignment="CENTER" layoutX="560.0" layoutY="16.0" maxWidth="170.0" onAction="#centerOnCamel" prefHeight="45.0" prefWidth="170.0" promptText="Kamel suchen" style="-fx-background-radius: 20;">
+                                                    <font>
+                                                        <Font size="19.0" />
+                                                    </font>
+                                                </TextField>
+                                                <Button layoutX="259.0" layoutY="22.0" mnemonicParsing="false" onAction="#backCamel" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0.5, 2, 0);" text="Zu den Rückwärts-Kamelen" wrapText="true">
+                                                    <opaqueInsets>
+                                                        <Insets />
+                                                    </opaqueInsets>
+                                                    <padding>
+                                                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                    </padding>
+                                                    <font>
+                                                        <Font name="System Bold" size="19.0" />
+                                                    </font>
+                                                </Button>
+                                                <StackPane fx:id="slideButton1" layoutX="1239.0" layoutY="28.0" maxWidth="40.0" onMouseClicked="#toggleSlide">
+                                                    <children>
+                                                        <Rectangle fx:id="background1" arcHeight="20" arcWidth="20" fill="#ddd" height="20.0" width="40.0" />
+                                                        <Circle fx:id="slider1" fill="#fff" radius="10.0" StackPane.alignment="CENTER_LEFT" />
+                                                    </children>
+                                                </StackPane>
+                                                <Label layoutX="749.0" layoutY="12.0" prefHeight="50.0" text="Erstes Kamel zentrieren" textOverrun="CLIP" wrapText="true">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <StackPane fx:id="slideButton2" layoutX="955.0" layoutY="28.0" maxWidth="40.0" onMouseClicked="#toggleSlide" prefHeight="20.0" prefWidth="40.0">
+                                                    <children>
+                                                        <Rectangle fx:id="background2" arcHeight="20" arcWidth="20" fill="#ddd" height="20.0" width="40.0" />
+                                                        <Circle fx:id="slider2" fill="#fff" radius="10.0" StackPane.alignment="CENTER_LEFT" />
+                                                    </children>
+                                                </StackPane>
+                                                <Label layoutX="1006.0" layoutY="13.0" prefHeight="50.0" text="Letze Änderung zentrieren" textOverrun="CLIP" wrapText="true">
+                                                    <font>
+                                                        <Font size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </HBox>
+                                <Button contentDisplay="CENTER" layoutX="845.0" layoutY="26.0" minHeight="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#rightNotEmpty" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 9; -fx-background-color: transparent;" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/ArrowRight_2.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                                <Button alignment="CENTER" contentDisplay="CENTER" layoutX="477.0" layoutY="26.0" minHeight="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#leftNotEmpty" prefHeight="60.0" prefWidth="60.0" style="-fx-background-radius: 9; -fx-background-color: transparent;" textAlignment="CENTER">
+                                    <graphic>
+                                        <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@assets/GameSpectate/ArrowLeft_2.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <Pane fx:id="fieldContainer" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="900.0" prefWidth="1400.0" GridPane.valignment="TOP" />
+                        <Pane fx:id="gameTextbox" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="900.0" prefWidth="1400.0">
+                            <children>
+                                <VBox layoutX="350.0" layoutY="200.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 50;">
+                                    <children>
+                                        <GridPane>
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="60.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="20.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="100.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="400.0" prefHeight="30.0" valignment="TOP" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text fx:id="gameTextboxHeadline" strokeType="OUTSIDE" strokeWidth="0.0" text="?????" GridPane.columnIndex="1">
+                                                    <font>
+                                                        <Font size="27.0" />
+                                                    </font>
+                                                </Text>
+                                                <VBox GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Text fx:id="gameTextboxLine0" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                        </Text>
+                                                        <Text fx:id="gameTextboxLine1" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="8.0" />
+                                                            </VBox.margin>
+                                                        </Text>
+                                                        <Text fx:id="gameTextboxLine2" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="8.0" />
+                                                            </VBox.margin>
+                                                        </Text>
+                                                        <Text fx:id="gameTextboxLine3" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="8.0" />
+                                                            </VBox.margin>
+                                                        </Text>
+                                                        <Text fx:id="gameTextboxLine4" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="8.0" />
+                                                            </VBox.margin>
+                                                        </Text>
+                                                        <Text fx:id="gameTextboxLine5" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="8.0" />
+                                                            </VBox.margin>
+                                                        </Text>
+                                                        <Text fx:id="gameTextboxLine6" strokeType="OUTSIDE" strokeWidth="0.0" text="?????">
+                                                            <font>
+                                                                <Font size="22.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets top="8.0" />
+                                                            </VBox.margin>
+                                                        </Text>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </Pane>
+                        <VBox fx:id="notificationBox" alignment="TOP_CENTER" maxHeight="200.0" maxWidth="520.0" minHeight="200.0" minWidth="520.0" mouseTransparent="true" prefHeight="200.0" prefWidth="520.0" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+                    </children>
+                </GridPane>
+            </children>
+        </GridPane>
+    </children>
+</StackPane>

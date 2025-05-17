@@ -1,0 +1,46 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "successFeedback",
+    "title": "successFeedback",
+    "description": "Structure of a success/error message. This is sent by the client/server to indicate the successful completion of the previous request.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "success",
+        "request"
+    ],
+    "properties": {
+        "success": {
+            "description": "Indicates whether the request was successful or failed. The field is true if the request was successful, and false otherwise.",
+            "type": "boolean"
+        },
+        "request": {
+            "description": "The original request package as object. The \"request package\" is that JSON object, that represents the content of the package with which the orginal request was made.",
+            "type": "object"
+        },
+        "error": {
+            "description": "This field is optional. In case of a request failure, this field can contain details about what exactly failed.",
+            "type": "string"
+        }
+    },
+    "examples": [
+       {
+        "success":"true",
+        "request":"playerRegistration"
+       },
+       {
+        "success":"true",
+        "request":"playerRegistration",
+        "error":""
+       },
+       {
+        "success":"false",
+        "request":"playerRegistration"
+       },
+       {
+        "success":"false",
+        "request":"playerRegistration",
+        "error":"Client Name ist ungültig (Client name is invalid)"
+       }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "clientAck",
+  "title": "clientAck",
+  "description": "After the client has initially connected to the server, the server sends this packet to inform the client of its clientID.",
+  "type": "object",
+  "required": [
+    "clientId"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "clientId": {
+      "description": "The clientId assigned to the client. These start at 0 and are numbered sequentially.",
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "examples": [
+    {
+      "clientID": 3
+    }
+  ]
+}

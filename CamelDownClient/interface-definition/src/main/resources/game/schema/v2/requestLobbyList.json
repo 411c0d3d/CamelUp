@@ -1,0 +1,8 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "requestLobbyList",
+    "title": "requestLobbyList",
+    "description": "Query packet to retrieve the list of all available lobbies. This is sent from the client to the server.",
+    "type": "object",
+    "additionalProperties": false
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "recentGames",
+  "title": "recentGames",
+  "description": "Contains a list of games that have ended. This package is sent as a response to 'requestRecentGames' from the server.",
+  "type": "object",
+  "required": [
+    "lobbies"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "lobbies": {
+      "type": "array",
+      "description": "A list of games that have ended.",
+      "minItems": 0,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "title": "recentGame",
+        "description": "A specific game that has ended.",
+        "required": [
+          "gameState",
+          "leaderboard"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "gameState": {
+            "$ref": "gameState.json"
+          },
+          "leaderboard": {
+            "description": "A list of player IDs representing the order of the leaderboard. The first player in the list is the winner, and so on.",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "gameState": {
+        "$ref": "gameState.json#examples"
+      },
+      "leaderboard": [
+        3,
+        1,
+        2,
+        0
+      ]
+    }
+  ]
+}

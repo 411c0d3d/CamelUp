@@ -1,0 +1,114 @@
+{"lobby":{
+  "lobbyId": 899,
+  "name": "lobby of: Chris",
+  "gameState": {
+    "gamePhase": "finished",
+    "boardSpaces": [
+      {
+        "spaceId": 0,
+        "camelIds": [],
+        "playerCard": null
+      },
+      {
+        "spaceId": 1,
+        "camelIds": [
+          0,
+          1
+        ],
+        "playerCard": null
+      },
+      {
+        "spaceId": 2,
+        "camelIds": [],
+        "playerCard": null
+      },
+      {
+        "spaceId": 3,
+        "camelIds": [
+          -2,
+          -1
+        ],
+        "playerCard": null
+      }
+    ],
+    "gameConfig": {
+      "playerCount": 4,
+      "numberOfSpaces": 4,
+      "camels": [
+        {
+          "id": -2,
+          "color": "FFFFFF"
+        },
+        {
+          "id": -1,
+          "color": "000000"
+        },
+        {
+          "id": 0,
+          "color": "BBBBBB"
+        },
+        {
+          "id": 1,
+          "color": "CCCCCC"
+        }
+      ],
+      "diceFaces": 2,
+      "numberOfBettingCards": 8,
+      "thinkingTime": 90,
+      "visualizationTime": 1,
+      "illegalMovePenalty": "forfeitCurrentStage",
+      "maxGameDuration": 2000,
+      "maxTurns": 200
+    },
+    "rolledDice": [],
+    "bettingCards": [
+      {
+        "camelId": 0,
+        "amount": 0
+      },
+      {
+        "camelId": 1,
+        "amount": 0
+      }
+    ],
+    "players": [
+      {
+        "playerId": 622,
+        "name": " Hans ",
+        "money": 6,
+        "bettingCards": [],
+        "state": "disconnected"
+      },
+      {
+        "playerId": 623,
+        "name": "Ernst",
+        "money": 63,
+        "bettingCards": [],
+        "state": "disconnected"
+      },
+      {
+        "playerId": 624,
+        "name": "Peter ",
+        "money": 36,
+        "bettingCards": [],
+        "state": "disconnected"
+      },
+      {
+        "playerId": 625,
+        "name": " Dieter ",
+        "money": 6,
+        "bettingCards": [],
+        "state": "disconnected"
+      }
+    ],
+    "turns": 0,
+    "gameDuration": 0,
+    "moveTimeRemaining": -1,
+    "finalBets": {
+      "firstCamel": [],
+      "lastCamel": []
+    }
+  },
+  "observerIds": []},
+  "leaderboard" : [625,623,624,622]
+}

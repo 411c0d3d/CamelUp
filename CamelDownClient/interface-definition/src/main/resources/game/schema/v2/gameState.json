@@ -1,0 +1,463 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "gameState",
+    "title": "gameState",
+    "description": "The current state of the game, sent only by the server during an active game upon updates.",
+    "type": "object",
+    "required": [
+        "gamePhase",
+        "boardSpaces",
+        "gameConfig",
+        "rolledDice",
+        "bettingCards",
+        "players",
+        "rounds",
+        "gameDuration",
+        "moveTimeRemaining",
+        "finalBets"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "gamePhase": {
+        "description": "Indicates the current phase of the game. The sequence is always created -> (playing -> visualizing)* -> (paused -> visualizing -> playing) -> finished. \ncreated: The game has been created but not yet started. \nplaying: The currently active player must make their move. \nvisualizing: The clients are visualizing the game. \npaused: The game is paused and waiting to be resumed. This phase is always followed by visualizing. \nfinished: The game is over or has been aborted.",
+        "type": "string",
+        "enum": [
+          "created",
+          "playing",
+          "visualizing",
+          "paused",
+          "finished"
+        ]
+      },
+        "boardSpaces": {
+            "type": "array",
+            "description": "A list of all spaces on the game board and the finish line. The positions [0, n-1] in the array are all spaces on the game board in sequence. The n-th position is for the camel that crossed the finish line first and thus ended the game. Therefore, no spectator tile can be placed there and the camel cannot be moved further once it is on this space.",
+            "items": {
+                "type": "object",
+                "title": "boardSpace",
+                "description": "A special space on the game board or the finish line",
+                "required": [
+                    "spaceId"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "spaceId": {
+                        "description": "The unique identifier of the space. These start at 0 and are numbered sequentially.",
+                        "type": "integer"
+                    },
+                    "camelIds": {
+                        "description": "The IDs of the camels on this space. The first camel in the list is the bottommost camel and the last is the topmost.",
+                        "type": "array",
+                        "minItems": 0,
+                        "items": {
+                            "type": "integer",
+                            "minimum": 0
+                        },
+                        "uniqueItems": true
+                    },
+                    "playerCard": {
+                        "description": "A spectator tile placed on this space",
+                        "type": "object",
+                        "required": [
+                            "playerId",
+                            "spacesMoved"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "playerId": {
+                                "description": "The ID of the player who placed this tile",
+                                "type": "integer"
+                            },
+                          "spacesMoved": {
+                            "description": "This determines whether the camel (herd) is to be moved one space forward (+1) or one space back (-1) when entering the field.",
+                            "type": "integer",
+                            "enum": [
+                              -1,
+                              1
+                            ]
+                          }
+                        }
+                    }
+                }
+            }
+        },
+        "gameConfig": {
+            "$ref": "gameConfig.json"
+        },
+        "rolledDice": {
+            "description": "The list of rolled dice and their results. The list is in the order the dice were rolled. For the backward-moving camels, the id of the *moved* camel is used, not necessarily the id of the camel the dice was rolled for.",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "required": [
+                    "camelId",
+                    "number"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "camelId": {
+                        "description": "The ID of the camel for which the dice was rolled. Or in case of backward running camels, the id of the backward running camel, that was moved",
+                        "type": "integer",
+                        "minimum": -2
+                    },
+                    "number": {
+                        "description": "The result of the roll",
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                }
+            },
+            "uniqueItems": true
+        },
+        "bettingCards": {
+            "description": "A list of camelId and amount pairs indicating how many betting cards are left for a camel in this stage.",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "required": [
+                    "camelId",
+                    "amount"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "camelId": {
+                        "description": "The ID of the camel for which the betting cards are",
+                        "type": "integer"
+                    },
+                    "amount": {
+                        "description": "The number of betting cards left.",
+                        "type": "integer",
+                        "minimum": 0
+                    }
+                },
+                "uniqueItems": true
+            }
+        },
+        "players": {
+            "type": "array",
+            "description": "A list of all players in this game. The first player in the list is the active player, the second is the next, and so on.",
+            "minItems": 2,
+            "maxItems": 6,
+            "items": {
+                "type": "object",
+                "title": "player",
+                "description": "A specific player participating in the game",
+                "required": [
+                    "playerId",
+                    "name",
+                    "bettingCards",
+                    "state",
+                    "money"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "playerId": {
+                        "description": "The unique ID of the player. This is the same as the clientId of the client.",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "The name of the player",
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 20
+                    },
+                    "money": {
+                        "description": "The number of coins the player has",
+                        "type": "integer",
+                        "minimum": 0
+                    },
+                    "bettingCards": {
+                        "type": "array",
+                        "description": "A list of betting cards the player has",
+                        "uniqueItems": true,
+                        "minItems": 0,
+                        "items": {
+                            "type": "object",
+                            "title": "bettingCard",
+                            "description": "A specific betting card",
+                            "required": [
+                                "camelId",
+                                "worth"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "camelId": {
+                                    "description": "The ID of the camel for which the betting card is valid",
+                                    "type": "integer"
+                                },
+                                "worth": {
+                                    "description": "The value of the betting card",
+                                    "type": "integer",
+                                    "minimum": 2
+                                }
+                            }
+                        }
+                    },
+                    "state": {
+                        "description": "The current status of the player. \nplaying: The player is actively participating in the game. \ncurrentStageForfeit: The player has been excluded from the current stage scoring. \ngameForfeit: The player has been excluded from the entire game and is now only a passive observer. \ndisconnected: The player has lost connection to the game and is no longer participating.",
+                        "type": "string",
+                        "enum": [
+                            "playing",
+                            "currentStageForfeit",
+                            "gameForfeit",
+                            "disconnected"
+                        ]
+                    }
+                }
+            }
+        },
+        "turns": {
+            "description": "The number of turns already played in the game. It starts at 0 and is incremented by one in the transition from phase PLAYING to VISUALISING.",
+            "type": "integer",
+            "minimum": 0
+        },
+        "gameDuration": {
+            "description": "How long the game has been running in milliseconds",
+            "type": "integer",
+            "minimum": 0
+        },
+        "moveTimeRemaining": {
+            "description": "How much time the active player has left to make their move in milliseconds",
+            "type": "integer",
+            "minimum": 0
+        },
+        "finalBets": {
+            "description": "The two stacks for the final bets.",
+            "type": "object",
+            "properties": {
+                "firstCamel": {
+                    "description": "The stack of bets for the first camel. The first element in the list is the first bet placed, and the last is the most recent bet.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "description": "Ein paar an playerId und camelId. Die camelId wird nur mitgeschickt wenn die playerID die des empfangenden Spielers entspricht.",
+                        "required": [
+                            "playerId"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "playerId": {
+                                "type": "integer",
+                                "description": "Die Id des Spielers der die Wette abgegeben hat. Entspricht der clientId des Spielers.",
+                                "minimum": 0
+                            },
+                            "camelId": {
+                                "type": "integer",
+                                "description": "Die Id des Kamels auf das der Spieler gewettet hat. Wird nur mitgeschickt wenn die playerID die des empfangenden Spielers entspricht.",
+                                "minimum": 0
+                            }
+                        }
+                    }
+                },
+                "lastCamel": {
+                    "description": "The stack of bets for the last camel. The first element in the list is the first bet placed, and the last is the most recent bet.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "description": "Ein paar an playerId und camelId. Die camelId wird nur mitgeschickt wenn die playerID die des empfangenden Spielers entspricht.",
+                        "required": [
+                            "playerId"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "playerId": {
+                                "type": "integer",
+                                "description": "Die Id des Spielers der die Wette abgegeben hat. Entspricht der clientId des Spielers. Wird nur mitgeschickt wenn die playerID die des empfangenden Spielers entspricht.",
+                                "minimum": 0
+                            },
+                            "camelId": {
+                                "type": "integer",
+                                "description": "Die Id des Kamels auf das der Spieler gewettet hat",
+                                "minimum": 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "gamePhase": "playing",
+            "boardSpaces": [
+                {
+                    "spaceId": 0,
+                    "camelIds": [],
+                    "playerCard": null
+                },
+                {
+                    "spaceId": 1,
+                    "camelIds": [
+                        0,
+                        1
+                    ],
+                    "playerCard": null
+                },
+                {
+                    "spaceId": 2,
+                    "camelIds": [
+                        4
+                    ],
+                    "playerCard": null
+                },
+                {
+                    "spaceId": 3,
+                    "camelIds": [
+                        3,
+                        5
+                    ],
+                    "playerCard": null
+                },
+                {
+                    "spaceId": 4,
+                    "camelIds": [],
+                    "playerCard": {
+                        "playerId": 4,
+                        "spacesMoved": 1
+                    }
+                },
+                {
+                    "spaceId": 5,
+                    "camelIds": [],
+                    "playerCard": null
+                }
+            ],
+            "gameConfig": {
+                "playerCount": 5,
+                "numberOfSpaces": 5,
+                "camels": [
+                    {
+                        "id": 0,
+                        "color": "#000000",
+                        "isGoingBackwards": true
+                    },
+                    {
+                        "id": 1,
+                        "color": "#FFFFFF",
+                        "isGoingBackwards": true
+                    },
+                    {
+                        "id": 2,
+                        "color": "#0000FF",
+                        "isGoingBackwards": false
+                    },
+                    {
+                        "id": 3,
+                        "color": "#FFFF00",
+                        "isGoingBackwards": false
+                    },
+                    {
+                        "id": 4,
+                        "color": "#FF00FF",
+                        "isGoingBackwards": false
+                    },
+                    {
+                        "id": 5,
+                        "color": "#00FFFF",
+                        "isGoingBackwards": false
+                    }
+                ],
+                "diceFaces": 6,
+                "numberOfBettingsCards": 3,
+                "thinkingTime": 30000,
+                "visualizationTime": 10000,
+                "illegalMovePenalty": "forfeitCurrentStage",
+                "maxGameDuration": 600000,
+                "maxRounds": 10
+            },
+            "rolledDice": [
+                {
+                    "camelId": 0,
+                    "number": 3
+                },
+                {
+                    "camelId": 1,
+                    "number": 3
+                },
+                {
+                    "camelId": 2,
+                    "number": 1
+                }
+            ],
+            "bettingCards": [
+                {
+                    "camelId": 0,
+                    "amount": 3
+                },
+                {
+                    "camelId": 1,
+                    "amount": 3
+                },
+                {
+                    "camelId": 2,
+                    "amount": 3
+                },
+                {
+                    "camelId": 3,
+                    "amount": 2
+                },
+                {
+                    "camelId": 4,
+                    "amount": 2
+                },
+                {
+                    "camelId": 5,
+                    "amount": 3
+                }
+            ],
+            "players": [
+                {
+                    "playerId": 0,
+                    "name": "Player 1",
+                    "tokens": 3,
+                    "bettingCards": [
+                        {
+                            "camelId": 3,
+                            "worth": 3
+                        }
+                    ],
+                    "state": "playing"
+                },
+                {
+                    "playerId": 1,
+                    "name": "Player 2",
+                    "tokens": 3,
+                    "bettingCards": [
+                        {
+                            "camelId": 4,
+                            "worth": 3
+                        }
+                    ],
+                    "state": "currentStageForfeit"
+                },
+                {
+                    "playerId": 2,
+                    "name": "Player 3",
+                    "tokens": 3,
+                    "bettingCards": [],
+                    "state": "playing"
+                },
+                {
+                    "playerId": 3,
+                    "name": "Player 4",
+                    "tokens": 3,
+                    "bettingCards": [],
+                    "state": "disconnected"
+                }
+            ],
+            "rounds": 1,
+            "gameDuration": 180000,
+            "moveTimeRemaining": 3000,
+            "finalBets": {
+                "winner": [
+                    2
+                ],
+                "loser": [
+                    3
+                ]
+            }
+        }
+    ]
+}

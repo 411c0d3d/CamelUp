@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "gameEnd",
+    "title": "gameEnd",
+    "description": "After the game has ended, the server sends this package to all clients to inform them about the end of the game and the winner.",
+    "type": "object",
+    "required": [
+      "lobby",
+      "leaderboard"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "lobby": {
+        "$ref": "lobbyList.json#/lobbies/items"
+      },
+      "leaderboard": {
+        "type": "array",
+        "description": "A list of player objects, which contains the player id and the score of the player. Ordered by score.",
+        "items": {
+            "type": "integer",
+            "title": "playerId"
+        }
+      }
+    }
+  }
